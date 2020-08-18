@@ -11,9 +11,12 @@ class TripsController < ApplicationController
   end
 
   def create
+
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
+    @trip.departure_date = Date.new trip_params["departure_date(1i)"].to_i, trip_params["departure_date(2i)"].to_i, trip_params["departure_date(3i)"].to_i
     @trip.save
+      binding.pry
     redirect_to trip_path(@trip)
   end
 

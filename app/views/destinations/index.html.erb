@@ -1,7 +1,9 @@
 <h1>Destinations</h1>
 
-<img src="https://cdn.pixabay.com/photo/2015/08/18/05/46/dallas-893343_960_720.jpg" alt="dallas">
-
+<%= button_to "My Trips", '/trips', method: :get%>
+<br>
+<%= button_to "Home", '/welcome', method: :get%>
+<br>
 
 <ul>
 <% @destinations.each do |dest|%>

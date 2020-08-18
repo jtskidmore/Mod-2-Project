@@ -7,6 +7,7 @@
 <p><%= Destination.find(@trip.destination_id).city %></p><br>
 <br>
 <p>Departure Date:</p>
-<p><%= @trip.departure_date %></p><br>
+<% binding.pry %>
+<p><%= Date.parse(@trip.departure_date).strftime("%m/%d/%Y") %></p><br>
 
 <%= button_to 'Delete Trip', trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}%>

@@ -7,7 +7,11 @@
 <%end%>
 
 <%= button_to "Login", '/login', method: :get%>
-
+<br>
 <%= button_to "Sign Up", '/users/new', method: :get%>
-
-<%= link_to "Logout", :controller => 'sessions', :action => 'destroy' %>
+<br>
+<%= button_to "Logout", '/logout', method: :delete%>
+<br>
+<%= button_to "My Trips", '/trips', method: :get%>
+<br>
+<%= button_to "Destinations", '/destinations', method: :get%>

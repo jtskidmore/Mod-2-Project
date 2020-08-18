@@ -4,15 +4,19 @@
 
 <%= f.label :title %>
 <%= f.text_field :title %>
-
+<br>
+<br>
 <%= f.label :description %>
 <%= f.text_field :description %>
-
+<br>
+ <br>
 <%= f.label :destination_id %>
 <%= f.collection_select :destination_id, Destination.all, :id, :city %>
-
+<br>
+<br>
 <%= f.label :departure_date %>
-<%= f.text_field :departure_date %>
-
+<%= f.date_select :departure_date, :order => [:month, :day, :year] %>
+<br>
+<br>
 <%= f.submit "Create Trip" %>
 <%end%>
