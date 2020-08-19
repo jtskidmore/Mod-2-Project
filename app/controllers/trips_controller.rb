@@ -3,7 +3,7 @@
 class TripsController < ApplicationController
 
   def index
-    @trips = Trip.all
+    @trips = Trip.order_by_recent
   end
 
   def new
@@ -16,7 +16,6 @@ class TripsController < ApplicationController
     @trip.user_id = current_user.id
     @trip.departure_date = Date.new trip_params["departure_date(1i)"].to_i, trip_params["departure_date(2i)"].to_i, trip_params["departure_date(3i)"].to_i
     @trip.save
-      binding.pry
     redirect_to trip_path(@trip)
   end
 
@@ -38,6 +37,10 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @trip.destroy
     redirect_to trips_path
+  end
+
+  def flights
+
   end
 
   private

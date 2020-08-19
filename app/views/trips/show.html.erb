@@ -1,13 +1,16 @@
 
+<%= button_to "My Trips", '/trips', method: :get%>
+
 <h2><%= @trip.title %></h2>
 <h5><%= @trip.description %></h5>
 <br>
 
 <p>Destination:</p>
-<p><%= Destination.find(@trip.destination_id).city %></p><br>
+<p><%= @trip.destination.city %></p>
+<img src="<%= @trip.destination.image %>" alt="destination image" height=150 width=300>
+<br>
 <br>
 <p>Departure Date:</p>
-<% binding.pry %>
-<p><%= Date.parse(@trip.departure_date).strftime("%m/%d/%Y") %></p><br>
+<p><%= @trip.reformat_date %></p><br>
 
 <%= button_to 'Delete Trip', trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}%>

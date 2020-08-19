@@ -5,6 +5,10 @@
 <%= button_to "Home", '/welcome', method: :get%>
 <br>
 
+<h3>Most Popular Destination</h3>
+<h4><%= link_to Trip.most_pop_dest_city, destination_path(Trip.most_pop_dest_instance) %></h4>
+<br>
+<h3>All Destinations</h3>
 <ul>
 <% @destinations.each do |dest|%>
 <li><%= link_to dest.city, destination_path(dest) %></li>

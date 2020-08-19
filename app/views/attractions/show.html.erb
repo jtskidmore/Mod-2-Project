@@ -1,0 +1,23 @@
+<h1><%= @attraction.name %></h1>
+<h3><%= @attraction.description %></h3>
+
+<img src="<%= @attraction.image %>" alt="attraction picture" width="1000" height="500">
+<br><br>
+
+<h3>Reviews</h3>
+
+<h4>Average <%= @attraction.average_rating %>/5 Stars</h4>
+
+<ul>
+<% @attraction.reviews.each do |review|%>
+<li><%= link_to review.title, review_path(review) %> Rating: <%= review.rating %>/5</li>
+<%end%>
+</ul>
+<br>
+<%= button_to "Create Review", '/reviews/new', method: :get%>
+<br>
+
+<%= button_to "All Attractions", '/attractions', method: :get%>
+<br>
+
+<%= button_to "City Page", destination_path(@attraction.destination_id), method: :get %>

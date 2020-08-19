@@ -10,15 +10,18 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
 
-    session[:user_id] = @user.id #changes session user_id to new user's user_id
-
-    redirect_to '/welcome'
+    if @user.valid?
+      session[:user_id] = @user.id #changes session user_id to new user's user_id
+      redirect_to '/welcome'
+    else
+      render :new
+    end
 
   end
 
   private
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation)
+    params.require(:user).permit(:username, :first_name, :last_name, :location, :password, :password_confirmation)
   end
 
 end

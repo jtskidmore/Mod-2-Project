@@ -1,5 +1,8 @@
+<h1>Create New Trip</h1>
 
 
+<%= button_to "Back", trips_path, method: :get %>
+<br>
 <%= form_for @trip do |f| %>
 
 <%= f.label :title %>

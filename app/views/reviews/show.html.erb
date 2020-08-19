@@ -1,0 +1,14 @@
+<h2><%= @review.attraction.name %></h2>
+
+<h4><%= @review.title %></h4>
+
+<h4>Rating: <%= @review.rating %>/5 Stars</h4>
+
+<p><%= @review.comments %></p>
+
+<p>User: <%= @review.user.first_name%> <%= @review.user.last_name%></p>
+
+
+<%= button_to "Back to Attraction", attraction_path(@review.attraction), method: :get%>
+<br>
+<%= button_to "Home", '/welcome', method: :get%>

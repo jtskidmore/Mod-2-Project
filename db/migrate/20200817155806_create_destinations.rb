@@ -3,6 +3,7 @@ class CreateDestinations < ActiveRecord::Migration[6.0]
     create_table :destinations do |t|
       t.string :city
       t.string :image
+      t.string :code
     end
   end
 end

@@ -1,0 +1,22 @@
+<h1>Create Review</h1>
+
+<%= form_for @review do |f| %>
+
+<%= f.label :attraction_id %>
+<%= f.collection_select :attraction_id, Attraction.all, :id, :name %>
+<br>
+<br>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<br>
+<br>
+<%= f.label :rating %>
+<%= f.select :rating, options_for_select(1..5) %>
+<br>
+<br>
+<%= f.label :comments %>
+<%= f.text_field :comments %>
+<br>
+<br>
+<%= f.submit "Submit Review" %>
+<%end%>

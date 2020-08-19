@@ -1,0 +1,15 @@
+<h1>Attractions</h1>
+
+<h3>Top Rated Attraction</h3>
+<h4><%= link_to Attraction.highest_rated_attraction_name, attraction_path(Attraction.highest_rated_attraction) %></h4>
+<img src="<%= Attraction.highest_rated_attraction.image%>" alt="top attraction image" height=150 width=300>
+<br>
+<h3>All Attractions</h3>
+<ul>
+<% @attractions.each do |attr|%>
+<li><%= link_to attr.name, attraction_path(attr) %></li>
+<%end%>
+</ul>
+<br>
+
+<%= button_to "Home", '/welcome', method: :get%>

@@ -1,4 +1,14 @@
 
-<%= @destination.city %>
+<h1><%= @destination.city %><br></h1>
+<img src="<%= @destination.image %>" alt="city picture" width="1000" height="500">
 
-<img src="<%= @destination.image %>" alt="city picture">
+
+<h3>Attractions</h3>
+<ul>
+<% @destination.attractions.each do |attr|%>
+<li><%= link_to attr.name, attraction_path(attr) %></li>
+<%end%>
+</ul>
+<br>
+
+<%= button_to "Back to Destinations", '/destinations', method: :get%>
