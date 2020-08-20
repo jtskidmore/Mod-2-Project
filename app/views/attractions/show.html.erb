@@ -1,23 +1,56 @@
-<h1><%= @attraction.name %></h1>
-<h3><%= @attraction.description %></h3>
+<%= image_tag 'photo/logo.png', style:"width:25%; height:10%" %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/welcome">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/trips">My Trips</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/destinations">Destinations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/attractions">Attractions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reviews">Reviews</a>
+        </li>
+    </ul>
+    <span class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </span>
+</nav>
 
-<img src="<%= @attraction.image %>" alt="attraction picture" width="1000" height="500">
+
+<div class="row" style="padding-top:5%;">
+<div class="col"></div>
+<div class="col-md-7 text-center">
+
+<h1><%= @attraction.name %></h1>
+<h4><%= @attraction.description %></h4>
+
+<img src="<%= @attraction.image %>" alt="attraction picture" width="600" height="300">
 <br><br>
 
 <h3>Reviews</h3>
 
-<h4>Average <%= @attraction.average_rating %>/5 Stars</h4>
+<h4><%= @attraction.average_rating %></h4>
 
-<ul>
+<ul class="list-group list-group-flush">
 <% @attraction.reviews.each do |review|%>
-<li><%= link_to review.title, review_path(review) %> Rating: <%= review.rating %>/5</li>
+    <li class="list-group-item"><%= link_to review.title, review_path(review) %> Rating: <%= review.rating %>/5</li>
 <%end%>
 </ul>
 <br>
-<%= button_to "Create Review", '/reviews/new', method: :get%>
-<br>
+<div class="btn-group" role="group" aria-label="Basic example">
+<%= button_to "Create Review", '/reviews/new', class:"btn btn-md btn-secondary", method: :get%></button>
+<%= button_to "All Attractions", '/attractions', class:"btn btn-md btn-secondary", method: :get%></button>
+<%= button_to "City Page", destination_path(@attraction.destination_id), class:"btn btn-md btn-secondary", method: :get %></button>
+</div>
 
-<%= button_to "All Attractions", '/attractions', method: :get%>
-<br>
-
-<%= button_to "City Page", destination_path(@attraction.destination_id), method: :get %>
+</div><!-- .col-md-7 -->
+<div class="col"></div>
+</div><!-- .row -->

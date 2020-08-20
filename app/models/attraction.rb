@@ -14,8 +14,12 @@ class Attraction < ApplicationRecord
   end
 
   def average_rating
-    rating = self.ratings.sum/self.ratings.length
-    rating.round(1)
+    if self.ratings.length == 0
+      "No reviews yet"
+    elsif self.ratings.length > 0
+      rating = self.ratings.sum/self.ratings.length
+      "Average #{rating.round(1)}/5 Stars"
+    end
   end
 
   def self.highest_rated_attraction
@@ -30,6 +34,10 @@ class Attraction < ApplicationRecord
 
   def self.highest_rated_attraction_name
     self.highest_rated_attraction.name
+  end
+
+  def self.sort_alphabetically
+    self.all.order(:name)
   end
 
 end

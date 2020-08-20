@@ -1,8 +1,46 @@
+<%= image_tag 'photo/logo.png', style:"width:25%; height:10%" %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/welcome">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/trips">My Trips</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/destinations">Destinations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/attractions">Attractions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reviews">Reviews</a>
+        </li>
+    </ul>
+    <span class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </span>
+</nav>
+
+
+<div class="row" style="padding-top:10%;">
+<div class="col"></div>
+<div class="col-md-7 text-center">
+
 <h1>All Reviews</h1>
 
 
-<ul>
+<ul class="list-group list-group-flush">
 <% @reviews.each do |review|%>
-<li><%= link_to review.attraction.name, review_path(review) %></li>
+<li class="list-group-item"><%= link_to review.attraction.name, review_path(review) %></li>
 <%end%>
 </ul>
+<%= button_to "New Review", new_review_path, class:'btn btn-md btn-secondary', method: :get %>
+<br>
+<%= button_to "Home", '/welcome', class:'btn btn-md btn-secondary', method: :get%>
+
+</div><!-- .col-md-7 -->
+<div class="col"></div>
+</div><!-- .row -->

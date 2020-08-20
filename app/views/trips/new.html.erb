@@ -1,7 +1,36 @@
-<h1>Create New Trip</h1>
+<%= image_tag 'photo/logo.png', style:"width:25%; height:10%" %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/welcome">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/trips">My Trips</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/destinations">Destinations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/attractions">Attractions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reviews">Reviews</a>
+        </li>
+    </ul>
+    <span class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </span>
+</nav>
 
 
-<%= button_to "Back", trips_path, method: :get %>
+<div class="row" style="padding-top:10%;">
+<div class="col"></div>
+<div class="col-md-7 text-center">
+
+<h1>Create New Trip</h1><br>
+
 <br>
 <%= form_for @trip do |f| %>
 
@@ -21,5 +50,11 @@
 <%= f.date_select :departure_date, :order => [:month, :day, :year] %>
 <br>
 <br>
-<%= f.submit "Create Trip" %>
+<%= f.submit "Create Trip", class:'btn btn-md btn-secondary' %>
 <%end%>
+<br>
+<%= button_to "Back", trips_path, class:'btn btn-md btn-secondary', method: :get %>
+
+</div><!-- .col-md-7 -->
+<div class="col"></div>
+</div><!-- .row -->

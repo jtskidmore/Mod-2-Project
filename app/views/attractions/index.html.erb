@@ -1,15 +1,57 @@
-<h1>Attractions</h1>
 
-<h3>Top Rated Attraction</h3>
-<h4><%= link_to Attraction.highest_rated_attraction_name, attraction_path(Attraction.highest_rated_attraction) %></h4>
-<img src="<%= Attraction.highest_rated_attraction.image%>" alt="top attraction image" height=150 width=300>
-<br>
+<%= image_tag 'photo/logo.png', style:"width:25%; height:10%" %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/welcome">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/trips">My Trips</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/destinations">Destinations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/attractions">Attractions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reviews">Reviews</a>
+        </li>
+    </ul>
+    <span class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </span>
+</nav>
+
+<div class="row" style="padding-top:5%;">
+<div class="col"></div>
+<div class="col-md-7 text-center">
+
+<h1>Attractions</h1><br>
+
+<h3>Top Rated Attraction</h3><br>
+<div class="card mb-3">
+<img src="<%= Attraction.highest_rated_attraction.image%>" class ="card-img-top" style:"width:50%; height:30%", alt="most_popular_attraction_image">
+<div class="card-body">
+<h5 class="card-title"><%= link_to Attraction.highest_rated_attraction_name, attraction_path(Attraction.highest_rated_attraction) %></h4>
+</div>
+</div>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+<%= button_to "My Trips", '/trips', class:"btn btn-md btn-secondary", method: :get%></button>
+<%= button_to "Home", '/welcome', class:"btn btn-md btn-secondary", method: :get%></button>
+</div><br><br>
+
 <h3>All Attractions</h3>
-<ul>
-<% @attractions.each do |attr|%>
-<li><%= link_to attr.name, attraction_path(attr) %></li>
+<ul class="list-group list-group-flush">
+<% @attractions.sort_alphabetically.each do |attr|%>
+    <li class="list-group-item"><%= link_to attr.name, attraction_path(attr) %></li>
 <%end%>
 </ul>
 <br>
 
-<%= button_to "Home", '/welcome', method: :get%>
+</div><!-- .col-md-7 -->
+<div class="col"></div>
+</div><!-- .row -->

@@ -1,3 +1,6 @@
+<div class="row" style="padding-top:10%;">
+<div class="col"></div>
+<div class="col-md-7 text-center">
 
 <h1>Sign Up</h1>
 
@@ -18,8 +21,9 @@
   <%= f.password_field :password%><br><br>
   <%= f.label :password_confirmation%><br>
   <%= f.password_field :password_confirmation%><br><br>
-  <%= f.submit %>
+  <%= f.submit :Submit, class:'btn btn-md btn-secondary'%><br><br>
 <%end%>
+<%= button_to "Home", '/welcome', class:'btn btn-md btn-secondary', method: :get%>
 
 <ul>
 <%if @user.errors.any?%>
@@ -28,3 +32,7 @@
   <%end%>
 <%end%>
 </ul>
+
+</div><!-- .col-md-7 -->
+<div class="col"></div>
+</div><!-- .row -->
