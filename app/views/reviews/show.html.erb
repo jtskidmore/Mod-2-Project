@@ -1,3 +1,7 @@
+<div class="row" style="padding-top:10%;">
+<div class="col"></div>
+<div class="col-md-7 text-center">
+
 <h2><%= @review.attraction.name %></h2>
 
 <h4><%= @review.title %></h4>
@@ -9,6 +13,10 @@
 <p>User: <%= @review.user.first_name%> <%= @review.user.last_name%></p>
 
 
-<%= button_to "Back to Attraction", attraction_path(@review.attraction), method: :get%>
+<%= button_to "Back to Attraction", attraction_path(@review.attraction), class:"btn btn-md btn-secondary", method: :get%>
 <br>
-<%= button_to "Home", '/welcome', method: :get%>
+<%= button_to "Home", '/welcome', class:"btn btn-md btn-secondary",method: :get%>
+
+</div><!-- .col-md-7 -->
+<div class="col"></div>
+</div><!-- .row -->

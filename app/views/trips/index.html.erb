@@ -1,14 +1,22 @@
+<div class="row" style="padding-top:10%;">
+<div class="col"></div>
+<div class="col-md-7 text-center">
+
 <h1>Your Trips</h1>
 
 
 
-<ul>
+<ul class="list-group list-group-flush">
 <% @trips.each do |trip|%>
-<li><%= trip.reformat_date %> <%= link_to trip.title, trip_path(trip) %></li>
+<li class="list-group-item"><%= trip.reformat_date %> <%= link_to trip.title, trip_path(trip) %></li>
 <%end%>
 </ul>
 <br>
 
-<%= button_to "New Trip", new_trip_path, method: :get %>
+<%= button_to "New Trip", new_trip_path, class:'btn btn-md btn-secondary', method: :get %>
 <br>
-<%= button_to "Home", '/welcome', method: :get%>
+<%= button_to "Home", '/welcome', class:'btn btn-md btn-secondary', method: :get%>
+
+</div><!-- .col-md-7 -->
+<div class="col"></div>
+</div><!-- .row -->

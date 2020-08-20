@@ -1,5 +1,7 @@
 
-<%= button_to "My Trips", '/trips', method: :get%>
+<div class="row" style="padding-top:10%;">
+<div class="col"></div>
+<div class="col-md-7 text-center">
 
 <h2><%= @trip.title %></h2>
 <h5><%= @trip.description %></h5>
@@ -13,4 +15,10 @@
 <p>Departure Date:</p>
 <p><%= @trip.reformat_date %></p><br>
 
-<%= button_to 'Delete Trip', trip_path(@trip), method: :delete, data: {confirm: "Are you sure?"}%>
+<%= button_to "My Trips", '/trips', class:'btn btn-md btn-secondary', method: :get%><br>
+
+<%= button_to 'Delete Trip', trip_path(@trip), method: :delete, class:'btn btn-md btn-secondary', data: {confirm: "Are you sure?"}%>
+
+</div><!-- .col-md-7 -->
+<div class="col"></div>
+</div><!-- .row -->

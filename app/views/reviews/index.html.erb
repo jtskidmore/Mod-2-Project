@@ -1,8 +1,19 @@
+<div class="row" style="padding-top:10%;">
+<div class="col"></div>
+<div class="col-md-7 text-center">
+
 <h1>All Reviews</h1>
 
 
-<ul>
+<ul class="list-group list-group-flush">
 <% @reviews.each do |review|%>
-<li><%= link_to review.attraction.name, review_path(review) %></li>
+<li class="list-group-item"><%= link_to review.attraction.name, review_path(review) %></li>
 <%end%>
 </ul>
+<%= button_to "New Review", new_review_path, class:'btn btn-md btn-secondary', method: :get %>
+<br>
+<%= button_to "Home", '/welcome', class:'btn btn-md btn-secondary', method: :get%>
+
+</div><!-- .col-md-7 -->
+<div class="col"></div>
+</div><!-- .row -->

@@ -1,7 +1,9 @@
-<h1>Create New Trip</h1>
+<div class="row" style="padding-top:10%;">
+<div class="col"></div>
+<div class="col-md-7 text-center">
 
+<h1>Create New Trip</h1><br>
 
-<%= button_to "Back", trips_path, method: :get %>
 <br>
 <%= form_for @trip do |f| %>
 
@@ -21,5 +23,11 @@
 <%= f.date_select :departure_date, :order => [:month, :day, :year] %>
 <br>
 <br>
-<%= f.submit "Create Trip" %>
+<%= f.submit "Create Trip", class:'btn btn-md btn-secondary' %>
 <%end%>
+<br>    
+<%= button_to "Back", trips_path, class:'btn btn-md btn-secondary', method: :get %>
+
+</div><!-- .col-md-7 -->
+<div class="col"></div>
+</div><!-- .row -->

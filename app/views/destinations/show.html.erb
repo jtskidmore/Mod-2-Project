@@ -1,14 +1,21 @@
+<div class="row" style="padding-top:10%;">
+<div class="col"></div>
+<div class="col-md-7 text-center">
 
-<h1><%= @destination.city %><br></h1>
-<img src="<%= @destination.image %>" alt="city picture" width="1000" height="500">
+<h1><%= @destination.city %></h1><br>
+<img src="<%= @destination.image %>" alt="city picture" width="600" height="300"><br><br>
 
 
-<h3>Attractions</h3>
-<ul>
+<h3>Attractions</h3><br>
+<ul class="list-group list-group-flush">
 <% @destination.attractions.each do |attr|%>
-<li><%= link_to attr.name, attraction_path(attr) %></li>
+<li class="list-group-item"><%= link_to attr.name, attraction_path(attr) %></li>
 <%end%>
 </ul>
 <br>
 
-<%= button_to "Back to Destinations", '/destinations', method: :get%>
+<%= button_to "Back to Destinations", '/destinations', class:'btn btn-md btn-secondary', method: :get%>
+
+</div><!-- .col-md-7 -->
+<div class="col"></div>
+</div><!-- .row -->
