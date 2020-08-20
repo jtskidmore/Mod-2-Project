@@ -21,8 +21,8 @@ class Trip < ApplicationRecord
     if dests.length == 0
       "No trips have been planned yet"
     elsif dests.length > 0
-    freq = dests.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-    dests.max_by { |v| freq[v] }
+      freq = dests.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+      dests.max_by { |v| freq[v] }
     end
   end
 

@@ -36,4 +36,8 @@ class Attraction < ApplicationRecord
     self.highest_rated_attraction.name
   end
 
+  def self.sort_alphabetically
+    self.all.order(:name)
+  end
+
 end
