@@ -1,13 +1,16 @@
-<div class="row" style="padding-top:10%;">
+<div class="row" style="padding-top:5%;">
 <div class="col"></div>
 <div class="col-md-7 text-center">
 
 <h1>Attractions</h1><br>
 
 <h3>Top Rated Attraction</h3><br>
-<h4><%= link_to Attraction.highest_rated_attraction_name, attraction_path(Attraction.highest_rated_attraction) %></h4>
-<img src="<%= Attraction.highest_rated_attraction.image%>" alt="top attraction image" height=150 width=300>
-<br>
+<div class="card mb-3">
+<img src="<%= Attraction.highest_rated_attraction.image%>" class ="card-img-top" style:"width:50%; height:30%", alt="most_popular_attraction_image">
+<div class="card-body">
+<h5 class="card-title"><%= link_to Attraction.highest_rated_attraction_name, attraction_path(Attraction.highest_rated_attraction) %></h4>
+</div>
+</div>
 
 <div class="btn-group" role="group" aria-label="Basic example">
 <%= button_to "My Trips", '/trips', class:"btn btn-md btn-secondary", method: :get%></button>
