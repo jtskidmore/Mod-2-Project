@@ -32,3 +32,12 @@ body {
   background-position: center;
   background-attachment: fixed;
 }
+
+span {
+  a:hover {
+    color: white;
+  }
+  a {
+      color: rgb(163, 160, 160);
+  }
+}

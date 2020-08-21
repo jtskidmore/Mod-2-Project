@@ -1,5 +1,7 @@
 <div class="background">
-<%= image_tag 'photo/logo2.png', style:"width:25%; height:10%" %>
+<div class="row" style="padding-top:1%; padding-bottom:2%;">
+<%= image_tag 'photo/logo4.png', style:"width:25%; height:10%" %><br><br>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/welcome">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,10 +44,10 @@
 
 <h1 class="text-white">Login</h1><br><br>
    <%= form_tag '/login' do %>
-   <p class="text-white"><%= label_tag :username%></p>
+   <h5 class="text-white"><%= label_tag :username%></h5>
    <%= text_field_tag :username %><br><br>
-   <p class="text-white"><%= label_tag :password%></p>
-   <%= password_field_tag :password%><br><br><br>
+   <h5 class="text-white"><%= label_tag :password%></h5>
+   <%= password_field_tag :password%><br><br><br><br>
    <%= submit_tag "Login", class:'btn btn-md btn-secondary'%>
 <%end%>
 

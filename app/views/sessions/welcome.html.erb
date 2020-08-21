@@ -1,5 +1,7 @@
 <div class="background">
-<%= image_tag 'photo/logo2.png', style:"width:25%; height:10%" %>
+<div class="row" style="padding-top:1%; padding-bottom:2%;">
+<%= image_tag 'photo/logo4.png', style:"width:25%; height:10%" %><br><br>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/welcome">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +23,7 @@
           <a class="nav-link" href="/reviews">Reviews</a>
         </li>
     </ul>
-    <span class="nav-item">
+    <span class="nav-item" style="color:red">
       <%= link_to "Logout", '/logout', method: :delete %>
     </span>
     <%else%>
@@ -43,13 +45,14 @@
 
 <div class="welcome_message">
   <% if logged_in? %>
-    <h2 class="text-white font-weight-bold font-italic">You are Logged In, <%= current_user.first_name %>!</h2>
+    <h2 class="text-white font-weight-bold font-italic">You are logged in, <%= current_user.first_name %>!</h2>
     <h4 class="text-white font-weight-light font-italic"><%= current_user.welcome_message %></h4>
 
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<h3 class="text-center text-light"><u>Most Popular Destination & Attraction</u></h3>
+<h3 class="text-center text-light"><strong>Most Popular Destination & Attraction</strong></h3>
+<br><br>
 
 <div class="container">
   <div class="row">
@@ -78,6 +81,7 @@
 
   <% else %>
     <h2 class="text-white font-weight-bold font-italic"> Welcome! </h2>
+    <h4 class="text-white font-weight-light font-italic"> Sign up or Login to get started <h4>
   
   
   

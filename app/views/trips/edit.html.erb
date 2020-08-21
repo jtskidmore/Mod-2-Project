@@ -1,5 +1,7 @@
 <div class="background">
-<%= image_tag 'photo/logo2.png', style:"width:25%; height:10%" %>
+<div class="row" style="padding-top:1%; padding-bottom:2%;">
+<%= image_tag 'photo/logo4.png', style:"width:25%; height:10%" %><br><br>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/welcome">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,18 +47,18 @@
 
 <%= form_for @trip do |f| %>
 
-<p class="text-white"><%= f.label :title %></p></p>
+<h5 class="text-white"><%= f.label :title %></h5>
 <%= f.text_field :title %><br><br>
 
-<p class="text-white"><%= f.label :description %></p>
+<h5 class="text-white"><%= f.label :description %></h5>
 <%= f.text_field :description %><br><br>
 
-<p class="text-white"><%= f.label :destination_id %></p>
+<h5 class="text-white"><%= f.label :destination_id %></h5>
 <%= f.collection_select :destination_id, Destination.all, :id, :city %><br><br>
 
-<p class="text-white"><%= f.label :departure_date %></p>
+<h5 class="text-white"><%= f.label :departure_date %></h5>
 <%= f.text_field :departure_date %>
-<br><br>
+<br><br><br>
 
 <%= f.submit "Update Trip", class:'btn btn-md btn-secondary' %>
 <%end%>

@@ -1,5 +1,7 @@
 <div class="background">
-<%= image_tag 'photo/logo2.png', style:"width:25%; height:10%" %>
+<div class="row" style="padding-top:1%; padding-bottom:2%;">
+<%= image_tag 'photo/logo4.png', style:"width:25%; height:10%" %><br><br>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/welcome">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,26 +43,37 @@
 <div class="col"></div>
 <div class="col-md-7 text-center">
 
-<h1 class="text-white"><%= @attraction.name %></h1>
-<h4 class="text-white"><%= @attraction.description %></h4>
+<h1 class="text-white font-italic"><strong><%= @attraction.name %></strong></h1>
+<p class="text-white font-italic"><%= @attraction.description %></p><br>
 
 <img src="<%= @attraction.image %>" alt="attraction picture" width="600" height="300">
-<br><br>
+<br><br><br>
 
 <h3 class="text-white">Reviews</h3>
 
 <h4 class="text-white"><%= @attraction.average_rating %></h4>
+<br><br>
 
-<ul class="list-group list-group-flush">
+<table class="table table-hover" style=";">
+<thead>
+<tr>
+<tr scope="col"><h5 class="text-white" style=";">Title of the Review & Rating</h5>
+</tr>
+</thead>
 <% @attraction.reviews.each do |review|%>
-    <li class="list-group-item"><%= link_to review.title, review_path(review) %> Rating: <%= review.rating %>/5</li>
+  <tbody>
+  <tr>
+  <td scope="row" class="text-white"><%= link_to review.title, review_path(review), {:style=>'color:lightgray; font-size:18px;', :class => "css_class"}%> - Rating: <%= review.rating %>/5</td>
+  </tr>
 <%end%>
-</ul>
+</tbody>
+</table>
+<br>
 <br>
 <div class="btn-group" role="group" aria-label="Basic example">
 <%= button_to "Create Review", '/reviews/new', class:"btn btn-md btn-secondary", method: :get%></button>
 <%= button_to "City Page", destination_path(@attraction.destination_id), class:"btn btn-md btn-secondary", method: :get %></button>
-</div>
+</div><br><br><br><br>
 
 </div><!-- .col-md-7 -->
 <div class="col"></div>

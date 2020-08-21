@@ -1,5 +1,7 @@
 <div class="background">
-<%= image_tag 'photo/logo2.png', style:"width:25%; height:10%" %>
+<div class="row" style="padding-top:1%; padding-bottom:2%;">
+<%= image_tag 'photo/logo4.png', style:"width:25%; height:10%" %><br><br>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/welcome">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,17 +43,20 @@
 <div class="col"></div>
 <div class="col-md-7 text-center">
 
-<h2 class="text-white"><%= @review.attraction.name %></h2>
-
-<h4 class="text-white"><%= @review.title %></h4><br>
-
+<h2 class="text-white"><u><%= @review.attraction.name %></u></h2>
+<br>
+<h4 class="text-white">"<%= @review.title %>"</h4><br>
+<br>
 <h4 class="text-white">Rating: <%= @review.rating %>/5 Stars</h4>
-
+<br>
 <p class="text-white"><%= @review.comments %></p>
-
 <p  class="text-white">User: <%= @review.user.first_name%> <%= @review.user.last_name%></p>
+<br>
+<br>
 
-<br><%= button_to "Edit", edit_review_path(@review.id), class:"btn btn-md btn-secondary", method: :get%>
+<% if @review.user == current_user %>
+<%= button_to "Edit", edit_review_path(@review.id), class:"btn btn-md btn-secondary", method: :get%>
+<% end %>
 <br>
 </div><!-- .col-md-7 -->
 <div class="col"></div>

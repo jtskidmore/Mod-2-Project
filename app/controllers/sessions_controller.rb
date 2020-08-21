@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/welcome', success: "Successfully logged in"
     else
-      redirect_to '/login', danger: "Invalid email or password"
+      redirect_to '/login', danger: "Invalid username or password"
     end
   end
 

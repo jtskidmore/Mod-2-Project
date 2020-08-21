@@ -1,5 +1,7 @@
 <div class="background">
-<%= image_tag 'photo/logo2.png', style:"width:25%; height:10%" %>
+<div class="row" style="padding-top:1%; padding-bottom:2%;">
+<%= image_tag 'photo/logo4.png', style:"width:25%; height:10%" %><br><br>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/welcome">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,16 +44,23 @@
 <div class="col-md-7 text-center">
 
 
-<h1 class="text-white"><%= @destination.city %></h1><br>
+<h1 class="text-white font-italic"><strong><%= @destination.city %></strong></h1><br>
 <img src="<%= @destination.image %>" alt="city picture" width="600" height="300"><br><br>
 
+<h3 class="text-white">Current Weather</h3>
+<p class="text-white" style="list-style-type:none;">
+  <p class="text-white"><%= @destination.dest_weather %></p>
+  <p class="text-white"><%= @destination.dest_temp %> &#176 F</p>
+  <p class="text-white"><%= @destination.dest_humidity %> Humidity</p>
+  <p class="text-white">Air Quality: <%= @destination.dest_air_quality %></p>
+</p>
 
-<h3 class="text-white">Attractions</h3><br>
+<br><br>
 
 <table class="table table-hover" style="width:70%; margin-left:90px;">
 <thead>
   <tr>
-  <tr scope="col"><h5 class="text-white">Name</h5>
+  <tr scope="col"><h4 class="text-white">Attractions</h5>
   </tr>
 <% @destination.attractions.each do |attr|%>
 <tbody>

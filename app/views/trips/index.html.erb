@@ -1,5 +1,7 @@
 <div class="background">
-<%= image_tag 'photo/logo2.png', style:"width:25%; height:10%" %>
+<div class="row" style="padding-top:1%; padding-bottom:2%;">
+<%= image_tag 'photo/logo4.png', style:"width:25%; height:10%" %><br><br>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/welcome">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,12 +43,12 @@
 <div class="col"></div>
 <div class="text-center">
 
-<h1 class="text-white">Your Trips</h1><br>
+<h1 class="text-white font-italic"><strong>My Trips</strong></h1><br><br>
 <div class='grid-center'>
 <table class="table table-hover" style="width:100%">
 <thead>
   <tr>
-    <tr scope="col"><h5 class="text-white">City</h5>
+    <tr scope="col"><h5 class="text-white">Trip Names</h5>
   </tr>
 </thead>
 <% @trips.each do |trip|%>
@@ -59,7 +61,7 @@
 </table>
 <br>
 </div>
-
+<br>
 <%= button_to "New Trip", new_trip_path, class:'btn btn-md btn-secondary', method: :get %>
 <br>
 

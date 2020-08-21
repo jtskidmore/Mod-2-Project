@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_08_19_165931) do
 
   create_table "destinations", force: :cascade do |t|
     t.string "city"
+    t.string "state"
     t.string "image"
     t.string "code"
   end
