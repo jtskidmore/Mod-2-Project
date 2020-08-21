@@ -48,7 +48,7 @@
 <div class="card mb-3">
 <img src="<%= Trip.most_pop_dest_instance.image%>" class="card-img-top" style:"width:50%; height:30%", alt="most_popular_dest_image">
 <div class="card-body">
-<h5 class="card-title"><%= link_to Trip.most_pop_dest_city, destination_path(Trip.most_pop_dest_instance) %></h5>
+<h5 class="card-title"><%= link_to Trip.most_pop_dest_city, destination_path(Trip.most_pop_dest_instance), {:style=>'color:black; font-size:25px;', :class => "css_class"} %></h5>
 </div>
 </div>
 
@@ -70,7 +70,7 @@
 <% @destinations.sort_alphabetically.each do |dest|%>
   <tbody>
   <tr>
-  <td scope="row"><%= link_to dest.city, destination_path(dest) %></td>
+  <td scope="row"><%= link_to dest.city, destination_path(dest),{:style=>'color:lightgray; font-size:18px;', :class => "css_class"} %></td>
   </tr>
 <%end%>
 </tbody>

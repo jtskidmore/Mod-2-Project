@@ -46,7 +46,7 @@
 <div class="card mb-3">
 <img src="<%= Attraction.highest_rated_attraction.image%>" class ="card-img-top" style:"width:50%; height:30%", alt="most_popular_attraction_image">
 <div class="card-body">
-<h5 class="card-title"><%= link_to Attraction.highest_rated_attraction_name, attraction_path(Attraction.highest_rated_attraction) %></h4>
+<h5 class="card-title"><%= link_to Attraction.highest_rated_attraction_name, attraction_path(Attraction.highest_rated_attraction), {:style=>'color:black; font-size:25px;', :class => "css_class"} %></h4>
 </div>
 </div>
 
@@ -65,7 +65,7 @@
 <% @attractions.sort_alphabetically.each do |attr|%>
   <tbody>
   <tr>
-  <td scope="row"><%= link_to attr.name, attraction_path(attr) %></td>
+  <td scope="row"><%= link_to attr.name, attraction_path(attr), {:style=>'color:lightgray; font-size:18px;', :class => "css_class"} %></td>
   </tr>
   <%end%>
 </tbody>

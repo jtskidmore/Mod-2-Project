@@ -52,7 +52,7 @@
 <% @reviews.each do |review|%>
   <tbody>
   <tr>
-  <td scope="row"><%= link_to review.attraction.name, review_path(review) %></td>
+  <td scope="row"><%= link_to review.attraction.name, review_path(review), {:style=>'color:lightgray; font-size:18px;', :class => "css_class"} %></td>
   </tr>
 <%end%>
 </tbody>

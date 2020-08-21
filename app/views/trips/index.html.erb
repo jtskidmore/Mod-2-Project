@@ -52,7 +52,7 @@
 <% @trips.each do |trip|%>
 <tbody>
   <tr>
-    <td scope="row"><%=link_to trip.title, trip_path(trip) %></td>
+    <td scope="row"><%=link_to trip.title, trip_path(trip), {:style=>'color:lightgray; font-size:18px;', :class => "css_class"} %></td>
   </tr>
 <%end%>
 </tbody>
