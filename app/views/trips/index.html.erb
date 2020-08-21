@@ -1,10 +1,12 @@
-<%= image_tag 'photo/logo.png', style:"width:25%; height:10%" %>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="background">
+<%= image_tag 'photo/logo2.png', style:"width:25%; height:10%" %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/welcome">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%if logged_in?%>
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="/trips">My Trips</a>
@@ -20,26 +22,43 @@
         </li>
     </ul>
     <span class="nav-item">
-      <a class="nav-link" href="/logout">Logout</a>
+      <%= link_to "Logout", '/logout', method: :delete %>
     </span>
+    <%else%>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/new">Sign Up</a>
+        </li>
+      </ul>
+    <%end%>
 </nav>
-
 
 
 <div class="row" style="padding-top:4%;">
 <div class="col"></div>
-<div class="col-md-7 text-center">
+<div class="text-center">
 
-<h1>Your Trips</h1>
-
-
-
-<ul class="list-group list-group-flush">
+<h1 class="text-white">Your Trips</h1><br>
+<div class='grid-center'>
+<table class="table table-hover" style="width:100%">
+<thead>
+  <tr>
+    <tr scope="col"><h5 class="text-white">City</h5>
+  </tr>
+</thead>
 <% @trips.each do |trip|%>
-<li class="list-group-item"><%= trip.reformat_date %> <%= link_to trip.title, trip_path(trip) %></li>
+<tbody>
+  <tr>
+    <td scope="row"><%=link_to trip.title, trip_path(trip) %></td>
+  </tr>
 <%end%>
-</ul>
+</tbody>
+</table>
 <br>
+</div>
 
 <%= button_to "New Trip", new_trip_path, class:'btn btn-md btn-secondary', method: :get %>
 <br>

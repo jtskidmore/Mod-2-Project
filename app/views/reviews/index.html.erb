@@ -1,10 +1,12 @@
-<%= image_tag 'photo/logo.png', style:"width:25%; height:10%" %>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="background">
+<%= image_tag 'photo/logo2.png', style:"width:25%; height:10%" %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/welcome">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%if logged_in?%>
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="/trips">My Trips</a>
@@ -20,8 +22,18 @@
         </li>
     </ul>
     <span class="nav-item">
-      <a class="nav-link" href="/logout">Logout</a>
+      <%= link_to "Logout", '/logout', method: :delete %>
     </span>
+    <%else%>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/new">Sign Up</a>
+        </li>
+      </ul>
+    <%end%>
 </nav>
 
 
@@ -29,17 +41,24 @@
 <div class="col"></div>
 <div class="col-md-7 text-center">
 
-<h1>All Reviews</h1>
+<h1 class="text-white">All Reviews</h1><br>
 
-
-<ul class="list-group list-group-flush">
+<table class="table table-hover" style="width:70%; margin-left:90px;">
+<thead>
+  <tr>
+  <tr scope="col"><h5 class="text-white">Title of the Review</h5>
+  </tr>
+</thead>
 <% @reviews.each do |review|%>
-<li class="list-group-item"><%= link_to review.attraction.name, review_path(review) %></li>
+  <tbody>
+  <tr>
+  <td scope="row"><%= link_to review.attraction.name, review_path(review) %></td>
+  </tr>
 <%end%>
-</ul>
-<%= button_to "New Review", new_review_path, class:'btn btn-md btn-secondary', method: :get %>
-<br>
-<%= button_to "Home", '/welcome', class:'btn btn-md btn-secondary', method: :get%>
+</tbody>
+</table>
+
+<br><%= button_to "New Review", new_review_path, class:'btn btn-md btn-secondary', method: :get %>
 
 </div><!-- .col-md-7 -->
 <div class="col"></div>

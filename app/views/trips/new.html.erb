@@ -1,10 +1,12 @@
-<%= image_tag 'photo/logo.png', style:"width:25%; height:10%" %>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="background">
+<%= image_tag 'photo/logo2.png', style:"width:25%; height:10%" %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/welcome">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%if logged_in?%>
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="/trips">My Trips</a>
@@ -20,40 +22,49 @@
         </li>
     </ul>
     <span class="nav-item">
-      <a class="nav-link" href="/logout">Logout</a>
+      <%= link_to "Logout", '/logout', method: :delete %>
     </span>
+    <%else%>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/new">Sign Up</a>
+        </li>
+      </ul>
+    <%end%>
 </nav>
 
 
-<div class="row" style="padding-top:10%;">
+<div class="row" style="padding-top:4%;">
 <div class="col"></div>
 <div class="col-md-7 text-center">
 
-<h1>Create New Trip</h1><br>
+<h1 class="text-white">Create New Trip</h1><br>
 
 <br>
 <%= form_for @trip do |f| %>
 
-<%= f.label :title %>
+<p class="text-white"><%= f.label :title %></p>
 <%= f.text_field :title %>
 <br>
 <br>
-<%= f.label :description %>
+<p class="text-white"><%= f.label :description %></p>
 <%= f.text_field :description %>
 <br>
  <br>
-<%= f.label :destination_id %>
+ <p class="text-white"><%= f.label :destination_id %></p>
 <%= f.collection_select :destination_id, Destination.all, :id, :city %>
 <br>
 <br>
-<%= f.label :departure_date %>
+<p class="text-white"><%= f.label :departure_date %></p>
 <%= f.date_select :departure_date, :order => [:month, :day, :year] %>
 <br>
 <br>
 <%= f.submit "Create Trip", class:'btn btn-md btn-secondary' %>
 <%end%>
-<br>
-<%= button_to "Back", trips_path, class:'btn btn-md btn-secondary', method: :get %>
+
 
 </div><!-- .col-md-7 -->
 <div class="col"></div>
